@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+.bg-image{
+    background-image: url(./assets/pattern-bg-desktop.png) ;
+    background-size: cover;
+    text-align: center;
+    padding: 30px;
+    width: 100vw;
+    height: 40vh;
+}
+
+h1{
+    color: white;
+}
+
+#address_tracker{
+    padding: 20px;
+    border-radius: 10px 0px 0px 10px;
+    border: none;
+    width: 90%;
+    float: left;
+    margin-right: 0;
+    white-space: nowrap;
+}
+
+#address_tracker:focus{
+    border: none !important;
+    outline: none;
+}
+
+.input-wrapper{
+    width: 500px;
+    margin: auto;
+    box-shadow: 10px 5px 5px #0000002b;
+    border-radius: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.search_button{
+    padding: 20px;
+    width: 10%;
+    padding-top: 19px;
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    cursor: pointer;
+    background-color:  #121212;
+}
+
+.search_button:hover{
+    background-color: #3f3f3f;
+}
+
+#map { height: 60vh;width: 100%; }
+
+.informations{
+    display: flex;
+    padding: 60px;
+    box-shadow: 10px 5px 5px #0000002b;
+    margin: auto;
+    z-index: 99999;
+    position: absolute;
+    top: 15vw;
+    left: 50%;
+    margin-left: -40%;
+    border-radius: 20px;
+    width: 80vw;
+    background-color: white;
+}
+
+.item{
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-title{
+    font-size: 0.7em;
+    color: #3f3f3f;
+}
+
+.item-content{
+    font-size: 1.5em;
+    margin-top: 10px;
+    width: 100%;
+}

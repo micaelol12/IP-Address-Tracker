@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ip Address Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <main>
+      <div class="bg-image">
+        <h1>IP Address Tracker</h1>
+        <div class="input-wrapper">
+          <input
+            type="search"
+            name="address_tracker"
+            id="address_tracker"
+            placeholder="Search for any IP address or domain"
+          />
+          <button class="search_button" onclick="search()">
+            <img src="./assets/icon-arrow.svg" alt="search button" />
+          </button>
+        </div>
+      </div>
+      <div class="informations">
+        <div class="item">
+          <span class="item-title">IP ADDRESS</span>
+          <span id="ip_show" class="item-content"></span>
+        </div>
+        <div class="item">
+          <span class="item-title">LOCATION</span>
+          <span id="location_show" class="item-content"></span>
+        </div>
+        <div class="item">
+          <span class="item-title">TIMEZONE</span>
+          <span id="timezone_show" class="item-content"></span>
+        </div>
+        <div class="item">
+          <span class="item-title">ISP</span>
+          <span id="domain_show" class="item-content"></span>
+        </div>
+      </div>
+      <div id="map"></div>
+    </main>
+  </body>
+  <script src="./node_modules/axios/dist/axios.min.js"></script>
+  <script src="logic.mjs"></script>
+  <script
+    src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""
+  ></script>
+</html>
