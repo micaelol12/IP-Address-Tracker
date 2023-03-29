@@ -5,6 +5,13 @@ const locationShow = document.getElementById("location_show");
 const timezone = document.getElementById("timezone_show");
 const domain = document.getElementById("domain_show");
 
+const map = L.map("map")
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
 const search = async () => {
   const searchValue = document.getElementById("address_tracker").value;
   const response = await getIpAddress(searchValue);
@@ -32,17 +39,15 @@ const getIpAddress = async (ipAddress) => {
   locationShow.innerHTML = data.as.name;
   timezone.innerHTML = data.location.timezone;
   domain.innerHTML = data.as.domain;
-  setLocation(lat, lng);
+  setLocation(lat, lng,13);
 };
 
-const setLocation = (lat, lng) => {
-  console.log(lat, lng);
-  var map = L.map("map").setView([lat, lng], 13);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  }).addTo(map);
+const setLocation = (lat, lng,zoom) => {
+  console.log("zoom:", map.getZoom())
+  map.setView([lat, lng], zoom ?? map.getZoom(),{
+      "animate": true,
+      "duration": 10
+  });
 };
 
 getIpAddress();
