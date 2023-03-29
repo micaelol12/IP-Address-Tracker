@@ -5,7 +5,11 @@ const locationShow = document.getElementById("location_show");
 const timezone = document.getElementById("timezone_show");
 const domain = document.getElementById("domain_show");
 
-const map = L.map("map")
+const map = L.map("map", {
+  center: [51.505, -0.09],
+  zoom: 13
+})
+
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
@@ -39,14 +43,13 @@ const getIpAddress = async (ipAddress) => {
   locationShow.innerHTML = data.as.name;
   timezone.innerHTML = data.location.timezone;
   domain.innerHTML = data.as.domain;
-  setLocation(lat, lng,13);
+  setLocation(lat, lng, 13);
 };
 
-const setLocation = (lat, lng,zoom) => {
+const setLocation = (lat, lng, zoom) => {
   console.log("zoom:", map.getZoom())
-  map.setView([lat, lng], zoom ?? map.getZoom(),{
-      "animate": true,
-      "duration": 10
+  map.flyTo([lat, lng], zoom ?? map.getZoom(), {
+    duration: 6
   });
 };
 
