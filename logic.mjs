@@ -35,13 +35,14 @@ const printData = (ip, location, timezone, domain) => {
 const getIpAddressData = async (ipAddress) => {
   response = await getIpAddressRequest(ipAddress);
   const data = response.data;
+  console.log('data:',data)
   return {
     lat: data.location.lat,
     lng: data.location.lng,
     ip: data.ip,
-    location: data.as.name,
+    location: data?.as?.name,
     timezone: data.location.timezone,
-    domain: data.as.domain
+    domain: data?.as?.domain
   }
 
 };
