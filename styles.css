@@ -24,7 +24,7 @@ h1{
     padding: 20px;
     border-radius: 10px 0px 0px 10px;
     border: none;
-    width: 90%;
+    width: calc(100% - 50px);
     float: left;
     margin-right: 0;
     white-space: nowrap;
@@ -36,7 +36,8 @@ h1{
 }
 
 .input-wrapper{
-    width: 500px;
+    width: 80vw;
+    max-width: 800px;
     margin: auto;
     box-shadow: 10px 5px 5px #0000002b;
     border-radius: 10px;
@@ -46,7 +47,7 @@ h1{
 
 .search_button{
     padding: 20px;
-    width: 10%;
+    width: 50px;
     padding-top: 19px;
     border-radius: 0px 10px 10px 0px;
     border: none;
@@ -62,23 +63,50 @@ h1{
 
 .informations{
     display: flex;
-    padding: 60px;
+    padding: 40px;
     box-shadow: 10px 5px 5px #0000002b;
     margin: auto;
     z-index: 99999;
     position: absolute;
-    top: 15vw;
+    top: 30vh;
     left: 50%;
     margin-left: -40%;
+    flex-wrap: wrap;
     border-radius: 20px;
     width: 80vw;
     background-color: white;
 }
 
 .item{
-    width: 25%;
     display: flex;
+    flex: 25%;
     flex-wrap: wrap;
+    border-right: 1px solid rgb(184, 184, 184);
+    padding: 20px;
+}
+
+@media (max-width: 600px)
+{   
+    body{
+        font-size: 80%;
+    }
+    .informations{
+        flex-direction: column;
+        top:20vh;
+        padding:10px
+    }
+    .item{
+        border: none;
+        justify-content: center;
+        padding: 10px;
+    }
+    .item-content{
+        text-align: center;
+    }
+}
+
+.item:last-child{
+    border: 0px;
 }
 
 .item-title{

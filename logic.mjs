@@ -35,7 +35,7 @@ const printData = (ip, location, timezone, domain) => {
 const getIpAddressData = async (ipAddress) => {
   response = await getIpAddressRequest(ipAddress);
   const data = response.data;
-  console.log('data:',data)
+
   return {
     lat: data.location.lat,
     lng: data.location.lng,
@@ -48,7 +48,6 @@ const getIpAddressData = async (ipAddress) => {
 };
 
 const setLocation = (lat, lng, zoom) => {
-  console.log("zoom:", map.getZoom())
   map.flyTo([lat, lng], zoom ?? map.getZoom(), {
     duration: 6
   });
@@ -62,7 +61,6 @@ const updateMap = async (ipAddress) => {
 
 const startMap = async () => {
   const ipData = await getIpAddressData();
-  console.log('teste', ipData)
   map = L.map("map", {
     center: [ipData.lat, ipData.lng],
     zoom: 13
